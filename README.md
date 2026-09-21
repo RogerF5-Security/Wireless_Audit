@@ -1,7 +1,27 @@
 # Wireless Audit Pro v3.3.1
 
+![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white) ![Licencia](https://img.shields.io/badge/licencia-no%20declarada-64748b) ![Build](https://img.shields.io/badge/build-autopruebas%20locales-0f766e)
+
 Aplicación integrada para auditoría wireless en Windows 10/11 sin WSL, Kali
 WSL2 y Kali/Linux nativo.
+
+**Objetivo de auditoría:** reunir inventario 802.11, señal, configuración y evidencias de recorrido en una interfaz única, con separación entre observación y capacidades físicas del adaptador.
+
+![Captura del radar de Wireless Audit Pro](data/ui_radar_final.png)
+
+## Instalación y requisitos
+
+Requiere Python 3.11 o superior y un entorno de escritorio. El reconocimiento básico utiliza la interfaz Wi-Fi disponible; monitor, inyección y Wifite requieren hardware y controladores compatibles. Instala las dependencias Python:
+
+```powershell
+git clone https://github.com/RogerF5-Security/Wireless_Audit.git
+cd Wireless_Audit
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+En Linux activa el entorno con `source .venv/bin/activate`. Para rutas GPS y funciones de radio avanzadas, consulta los controles dentro de la aplicación.
 
 ## Inicio
 
@@ -123,3 +143,5 @@ BSSID recibió; tener instalado el driver ya no equivale a estar conectada.
 - `data/map_tiles.sqlite`: caché del mapa.
 - `exports/`: WiGLE, GeoJSON, KML y mapas.
 - `reports/`: reportes técnicos HTML.
+
+Las bases SQLite se crean en la instalación local y no forman parte del código distribuido. Este repositorio no declara todavía una licencia de reutilización. Usa la herramienta exclusivamente en entornos controlados y auditorías autorizadas; protege capturas, ubicaciones y perfiles inalámbricos como evidencia sensible.
